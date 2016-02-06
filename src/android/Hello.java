@@ -15,7 +15,10 @@ public class Hello extends CordovaPlugin {
 NetworkInfo mWifi = connManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
 
 if (mWifi.isConnected()) {
-    callbackContext.success(message);
+    callbackContext.success("Yayyyy");
+}else{
+    callbackContext.success("Nahhhhhhh");
+    
 }
 
             
