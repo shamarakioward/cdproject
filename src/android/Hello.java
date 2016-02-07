@@ -33,9 +33,10 @@ public class Hello extends CordovaPlugin {
                 
                 WifiInfo info = wifiManager.getConnectionInfo();
                 int rssi = info.getRssi();
-                
+                int usersig = wifiManager.calculateSignalLevel(rssi,5)
                 JSONObject obj = new JSONObject();
                 obj.put("rssi", Integer.toString(rssi));
+                obj.put("user", Integer.toString(usersig));
                 callbackContext.success(obj);
             
             return true;
