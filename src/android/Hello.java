@@ -29,7 +29,7 @@ public class Hello extends CordovaPlugin {
         if (action.equals("greet")) {
 
             if(wifiManager.isWifiEnabled()){
-                callbackContext.success(wifiManager.getWifiState());
+                callbackContext.success(wifiManager.getConnectionInfo());
             
             return true;
         }else{
