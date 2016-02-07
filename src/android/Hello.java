@@ -32,7 +32,10 @@ public class Hello extends CordovaPlugin {
                 
                 WifiInfo info = wifiManager.getConnectionInfo();
                 int rssi = info.getRssi();
-                callbackContext.success(Integer.toString(rssi));
+                
+                JSONObject obj = new JSONObject();
+                obj.put("rssi", Integer.toString(rssi));
+                callbackContext.success(obj);
             
             return true;
         }else{
