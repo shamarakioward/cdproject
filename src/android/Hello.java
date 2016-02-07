@@ -31,7 +31,8 @@ public class Hello extends CordovaPlugin {
             if(wifiManager.isWifiEnabled()){
                 
                 WifiInfo info = wifiManager.getConnectionInfo();
-                callbackContext.success(info);
+                String ssid = info.getSSID();
+                callbackContext.success(ssid);
             
             return true;
         }else{
