@@ -14,6 +14,7 @@ import android.content.Context;
 import android.util.Log;
 import org.json.JSONObject;
 import java.net.HttpURLConnection;
+import java.net.URLConnection;
 
 public class Hello extends CordovaPlugin {
     private WifiManager wifiManager;
@@ -40,6 +41,15 @@ public class Hello extends CordovaPlugin {
                 JSONObject obj = new JSONObject();
                 obj.put("rssi", Integer.toString(rssi));
                 obj.put("user", Integer.toString(usersig));
+                URL url = new URL("ftp://mirror.csclub.uwaterloo.ca/index.html");
+                URLConnection urlConnection = url.openConnection();
+                InputStream in = new BufferedInputStream(urlConnection.getInputStream());
+                try {
+                        readStream(in);
+                finally {
+                            in.close();
+                        }
+                    }
                 callbackContext.success(obj);
             
             return true;
