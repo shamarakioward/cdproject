@@ -20,6 +20,7 @@ import java.net.URL;
 public class Hello extends CordovaPlugin {
     private WifiManager wifiManager;
     private HttpURLConnection connection; 
+    private URL url;
     private CallbackContext callbackContext;
     
     @Override
@@ -27,6 +28,7 @@ public class Hello extends CordovaPlugin {
         super.initialize(cordova, webView);
         this.wifiManager = (WifiManager) cordova.getActivity().getSystemService(Context.WIFI_SERVICE);
         this.connection = (HttpURLConnection) cordova.getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        this.url = (URL) cordova.getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
     }
 
     @Override
@@ -42,13 +44,12 @@ public class Hello extends CordovaPlugin {
                 JSONObject obj = new JSONObject();
                 obj.put("rssi", Integer.toString(rssi));
                 obj.put("user", Integer.toString(usersig));
-                URL url = new URL("http://google.com");
-                HttpURLConnection connection = (HttpURLConnection)url.openConnection();
-                connection.setRequestMethod("GET");
-                connection.connect();
-                
-                int code = connection.getResponseCode();
-                obj.put("accesscode", Integer.toString(code));
+                HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+connection.setRequestMethod("HEAD");
+int responseCode = connection.getResponseCode();
+if (responseCode != 200) {
+    // Not OK.
+}
                 callbackContext.success(obj);
             
             return true;
