@@ -15,6 +15,7 @@ import android.util.Log;
 import org.json.JSONObject;
 import java.net.HttpURLConnection;
 import java.net.URLConnection;
+import java.net.URL
 
 public class Hello extends CordovaPlugin {
     private WifiManager wifiManager;
