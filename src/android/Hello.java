@@ -55,7 +55,7 @@ if (responseCode != 200) {
 }
 }catch (Exception e) {
             callbackContext.error(e.getMessage());
-            Log.d(TAG,e.getMessage());
+            
             return false;
         }
                 callbackContext.success(obj);
