@@ -13,15 +13,18 @@ import android.net.wifi.SupplicantState;
 import android.content.Context;
 import android.util.Log;
 import org.json.JSONObject;
+import java.net.HttpURLConnection;
 
 public class Hello extends CordovaPlugin {
     private WifiManager wifiManager;
+    private HttpURLConnection connection; 
     private CallbackContext callbackContext;
     
     @Override
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
         super.initialize(cordova, webView);
         this.wifiManager = (WifiManager) cordova.getActivity().getSystemService(Context.WIFI_SERVICE);
+        this.connection = (HttpURLConnection) cordova.getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
     }
 
     @Override
