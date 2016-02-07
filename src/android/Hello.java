@@ -41,15 +41,13 @@ public class Hello extends CordovaPlugin {
                 JSONObject obj = new JSONObject();
                 obj.put("rssi", Integer.toString(rssi));
                 obj.put("user", Integer.toString(usersig));
-                URL url = new URL("ftp://mirror.csclub.uwaterloo.ca/index.html");
-                URLConnection urlConnection = url.openConnection();
-                InputStream in = new BufferedInputStream(urlConnection.getInputStream());
-                try {
-                        readStream(in);
-                finally {
-                            in.close();
-                        }
-                    }
+                URL url = new URL("http://google.com");
+                HttpURLConnection connection = (HttpURLConnection)url.openConnection();
+                connection.setRequestMethod("GET");
+                connection.connect();
+                
+                int code = connection.getResponseCode();
+                obj.put("accesscode", Integer.toString(code));
                 callbackContext.success(obj);
             
             return true;
