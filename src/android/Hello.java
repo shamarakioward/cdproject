@@ -14,16 +14,31 @@ import android.content.Context;
 import android.util.Log;
 
 public class Hello extends CordovaPlugin {
+    private WifiManager wifiManager;
+    private CallbackContext callbackContext;
+    
+    @Override
+    public void initialize(CordovaInterface cordova, CordovaWebView webView) {
+        super.initialize(cordova, webView);
+        this.wifiManager = (WifiManager) cordova.getActivity().getSystemService(Context.WIFI_SERVICE);
+    }
 
     @Override
     public boolean execute(String action, JSONArray data, CallbackContext callbackContext) throws JSONException {
 
         if (action.equals("greet")) {
 
+            if(wifiManager.isWifiEnabled()){
+                callbackContext.success("Yayyyy");
             
-wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+            return true;
+        }else{
+            
+            callbackContext.error("Wifi is disabled");
+        }
+    
 
-    callbackContext.success("Yayyyy");
+    
 
 
             
