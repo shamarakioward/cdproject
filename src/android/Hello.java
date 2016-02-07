@@ -12,6 +12,7 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.SupplicantState;
 import android.content.Context;
 import android.util.Log;
+import org.json.simple.JSONObject;
 
 public class Hello extends CordovaPlugin {
     private WifiManager wifiManager;
