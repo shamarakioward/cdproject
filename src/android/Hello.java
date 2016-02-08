@@ -74,7 +74,7 @@ public class Hello extends CordovaPlugin {
                 try{
                 response = this.downloadUrl("http://fatassgirlyougo.com/");
                 }catch(IOException e){
-                    callbackContext.error("Error");
+                    response = "0";
                 }
                 JSONObject obj = new JSONObject();
                 obj.put("rssi", Integer.toString(rssi));
