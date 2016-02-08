@@ -13,24 +13,15 @@ import android.net.wifi.SupplicantState;
 import android.content.Context;
 import android.util.Log;
 import org.json.JSONObject;
-import java.net.HttpURLConnection;
-import java.net.URLConnection;
-import java.net.URL;
-import java.lang.Exception;
-import org.json.JSONException;
 
 public class Hello extends CordovaPlugin {
     private WifiManager wifiManager;
-    private HttpURLConnection connection; 
-    private URL url;
     private CallbackContext callbackContext;
     
     @Override
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
         super.initialize(cordova, webView);
         this.wifiManager = (WifiManager) cordova.getActivity().getSystemService(Context.WIFI_SERVICE);
-        this.connection = (HttpURLConnection) cordova.getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
-        this.url = (URL) cordova.getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
     }
 
     @Override
@@ -46,21 +37,7 @@ public class Hello extends CordovaPlugin {
                 JSONObject obj = new JSONObject();
                 obj.put("rssi", Integer.toString(rssi));
                 obj.put("user", Integer.toString(usersig));
-                
                 callbackContext.success(obj);
-                try {
-                HttpURLConnection connection = (HttpURLConnection) new URL("http://www.google.com/").openConnection();
-connection.setRequestMethod("HEAD");
-int responseCode = connection.getResponseCode();
-if (responseCode != 200) {
-    // Not OK.
-}
-}catch (Exception e) {
-            callbackContext.error(e.getMessage());
-            
-            return false;
-        }
-                
             
             return true;
         }else{
