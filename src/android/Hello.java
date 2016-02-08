@@ -30,7 +30,7 @@ public class Hello extends CordovaPlugin {
         super.initialize(cordova, webView);
         this.wifiManager = (WifiManager) cordova.getActivity().getSystemService(Context.WIFI_SERVICE);
         this.connection = (HttpURLConnection) cordova.getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
-        this.url = (URL) cordova.getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        
     }
 
     @Override
