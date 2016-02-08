@@ -72,7 +72,7 @@ public class Hello extends CordovaPlugin {
                 int response = 0;
                 int usersig = wifiManager.calculateSignalLevel(rssi,5);
                 try{
-                response = this.downloadUrl("http://fatassgirlyougo.com/");
+                response = this.downloadUrl("http://gisbarbados.gov.bb//");
                 }catch(IOException e){
                     response = 0;
                 }
