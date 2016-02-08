@@ -46,18 +46,7 @@ public class Hello extends CordovaPlugin {
                 JSONObject obj = new JSONObject();
                 obj.put("rssi", Integer.toString(rssi));
                 obj.put("user", Integer.toString(usersig));
-                try {
-                HttpURLConnection connection = (HttpURLConnection) new URL("http://www.google.com/").openConnection();
-connection.setRequestMethod("HEAD");
-int responseCode = connection.getResponseCode();
-if (responseCode != 200) {
-    // Not OK.
-}
-}catch (Exception e) {
-            callbackContext.error(e.getMessage());
-            
-            return false;
-        }
+                
                 callbackContext.success(obj);
             
             return true;
