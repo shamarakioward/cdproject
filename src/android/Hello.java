@@ -72,7 +72,7 @@ public class Hello extends CordovaPlugin {
                 int usersig = wifiManager.calculateSignalLevel(rssi,5);
                 try{
                 int response = this.downloadUrl("http://google.com");
-                }catch(e){
+                }catch(IOException e){
                     callbackContext.error(e);
                 }
                 JSONObject obj = new JSONObject();
