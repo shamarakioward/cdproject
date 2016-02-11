@@ -105,7 +105,7 @@ https://gist.github.com/
                 wifiManager.reconnect();
                 
                 callbackContext.success("true");
-                return true.
+                return true;
                 
             }else{
                 String ssid ="WG";
