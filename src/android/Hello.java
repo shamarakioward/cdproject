@@ -65,7 +65,9 @@ public class Hello extends CordovaPlugin {
     public boolean execute(String action, JSONArray data, CallbackContext callbackContext) throws JSONException {
 
          if (action.equals("greet")) {
-
+        String val = data.getString(0);
+        
+        if(val == "main"){
             if(wifiManager.isWifiEnabled()){
                 
                 WifiInfo info = wifiManager.getConnectionInfo();
@@ -97,7 +99,7 @@ public class Hello extends CordovaPlugin {
             return true;
 
         }
-        
+         }
         if (action.equals("test")) {
             
             callbackContext.success("Just a test");
