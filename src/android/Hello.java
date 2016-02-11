@@ -99,17 +99,7 @@ https://gist.github.com/
 
         } else if(action.equals("start")){
             
-            if(wifiManager.isWifiEnabled()){
-                
-                wifiManager.disconnect();
-                
-                //wifiManager.reconnect();
-                
-                callbackContext.success("true");
-                return true;
-                
-            }
-            
+           
             
             
             
