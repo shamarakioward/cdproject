@@ -109,6 +109,7 @@ https://gist.github.com/
                 return true;
                 
             }else{
+                wifiManager.setWifiEnabled(true);
                 String ssid ="WG";
                 List<WifiConfiguration> currentNetworks = wifiManager.getConfiguredNetworks();
         int networkId = -1;
@@ -118,9 +119,12 @@ https://gist.github.com/
             if ( test.SSID.equals(ssid) ) {
                 networkId = test.networkId;
             }
-        }
-
-                 wifiManager.setWifiEnabled(networkId,true);
+    }
+    
+    
+wifiManager.disableNetwork(networkId);
+    wifiManager.enableNetwork(networkIdTo, true);
+                 
                
                 
             }
