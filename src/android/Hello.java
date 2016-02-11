@@ -96,11 +96,11 @@ public class Hello extends CordovaPlugin {
 
             return true;
 
-        }else if(action.equals("go")){
+        }
+        
+        if (action.equals("test")) {
             
-            
-            
-            callbackContext.success("test");
+            callbackContext.success("Just a test");
             
             return true;
             
@@ -118,13 +118,11 @@ public class Hello extends CordovaPlugin {
         
         
         
-        
-        
-        else{
+      
             
             
             return false;
-        }
+        
         
         
     }
