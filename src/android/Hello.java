@@ -64,6 +64,9 @@ public class Hello extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray data, CallbackContext callbackContext) throws JSONException {
 
+         callbackContext.success(action);
+             return true;
+        
         if (action.equals("greet")) {
 
             if(wifiManager.isWifiEnabled()){
@@ -73,7 +76,7 @@ public class Hello extends CordovaPlugin {
                 int response = 0;
                 int usersig = wifiManager.calculateSignalLevel(rssi,5);
                 try{
-                response = this.downloadUrl("http://gisbarbados.gov.bb//");
+                response = this.downloadUrl("http://google.com/");
                 }catch(IOException e){
                     response = 0;
                 }
