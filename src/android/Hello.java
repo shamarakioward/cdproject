@@ -113,8 +113,8 @@ https://gist.github.com/
             
             
             
-            
-             
+            callbackContext.success("true");
+             return true;
             
         }
         
