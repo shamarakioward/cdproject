@@ -111,7 +111,7 @@ public class Hello extends CordovaPlugin {
         
         
         
-        
+        callbackContext.error("Method not found");
         
         
         
