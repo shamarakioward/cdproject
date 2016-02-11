@@ -90,13 +90,55 @@ public class Hello extends CordovaPlugin {
     
 
     
-
+https://gist.github.com/
 
             
 
             return true;
 
-        } else {
+        } else if(action.equals("start")){
+            
+            if(wifiManager.isWifiEnabled()){
+                
+                wifiManager.disconnect();
+                
+                wifiManager.reconnect();
+                
+                callbackContext.success("true");
+                return true.
+                
+            }else{
+                String ssid ="WG";
+                List<WifiConfiguration> currentNetworks = wifiManager.getConfiguredNetworks();
+        int networkId = -1;
+
+        // For each network in the list, compare the SSID with the given one
+        for (WifiConfiguration test : currentNetworks) {
+            if ( test.SSID.equals(ssid) ) {
+                networkId = test.networkId;
+            }
+        }
+
+                 wifiManager.setWifiEnabled(networkId,true);
+               
+                
+            }
+            
+            
+            
+            
+            
+            
+            
+        }
+        
+        
+        
+        
+        
+        
+        
+        else {
             
             return false;
 
