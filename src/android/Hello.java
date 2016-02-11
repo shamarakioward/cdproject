@@ -96,7 +96,31 @@ public class Hello extends CordovaPlugin {
 
             return true;
 
-        }else{
+        }else if(action.equals("go")){
+            
+            
+            
+            callbackContext.success("test");
+            
+            return true;
+            
+            
+            
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        else{
             
             
             return false;
