@@ -123,7 +123,7 @@ https://gist.github.com/
     
     
 wifiManager.disableNetwork(networkId);
-    wifiManager.enableNetwork(networkIdTo, true);
+    wifiManager.enableNetwork(networkId, true);
                  
                
                 
