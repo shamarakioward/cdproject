@@ -67,60 +67,6 @@ public class Hello extends CordovaPlugin {
          callbackContext.success(action);
              return true;
         
-        if (action.equals("greet")) {
-
-            if(wifiManager.isWifiEnabled()){
-                
-                WifiInfo info = wifiManager.getConnectionInfo();
-                int rssi = info.getRssi();
-                int response = 0;
-                int usersig = wifiManager.calculateSignalLevel(rssi,5);
-                try{
-                response = this.downloadUrl("http://google.com/");
-                }catch(IOException e){
-                    response = 0;
-                }
-                JSONObject obj = new JSONObject();
-                obj.put("rssi", Integer.toString(rssi));
-                obj.put("user", Integer.toString(usersig));
-                obj.put("response", Integer.toString(response));
-                callbackContext.success(obj);
-            
-            return true;
-        }else{
-            
-            callbackContext.error("Wifi is disabled");
-        }
-    
-
-    
-https://gist.github.com/
-
-            
-
-            return true;
-
-        } else if(action.equals("go")){
-            
-           
-            
-            
-            
-            callbackContext.success("true");
-             return true;
-            
-        }
         
-        
-        
-        
-        
-        
-        
-        else {
-            
-            return false;
-
-        }
     }
 }
