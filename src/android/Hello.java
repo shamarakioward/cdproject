@@ -125,7 +125,7 @@ https://gist.github.com/
 wifiManager.disableNetwork(networkId);
     wifiManager.enableNetwork(networkId, true);
                  
-               
+               return true;
                 
             }
             
@@ -133,7 +133,7 @@ wifiManager.disableNetwork(networkId);
             
             
             
-            
+             return true;
             
         }
         
